@@ -1,4 +1,5 @@
 ## EC500 HW7 - Erin O'Neill 
+See README in the subfolders on the correct branches
 
 ### Step 1 - Setup React Native - DONE 
 Done on two laptops as the first died as I finished the setup. 
