@@ -3,10 +3,10 @@ This folder is for the final 3 steps - each branch includes a different version 
 
 The master branch is just the demo React Native App ( other demo photos are one each branch ) 
 
-![Image of Demo App](https://lh3.googleusercontent.com/RHYTwT6vtaD2KtmeCZ7W90eGXoybrcBRbbta8ge8Y48sEHS0S3Jy08dgsysqPTX388wEFJfWUPmQbXzoRxQfolvD_9_pzKrbY6_eD0mYF8dMVBI1psQC28_fx-5zd3CV44vFcwoAWg8Y7TWuZQnSe9HOoMAtvt5hm3wUN0wOZdCEest3rYhaUTGdD-N9HHOd7PPOjvzqDOXDRNck9QooVeDo6yIxvczvR36x3l6VDfezpB0mJ9zXaXt42CnmWv0Snxto95e9SiYaB7D6Fl3R0DoaKNcwOLBlJQr9hG3qxDZ-qqjBWM2Heg2fhD1rEePdcBeSaaT3sN2Ewqzfl4ey2copJR216yRE6ecCcXKcZFCEGls9ikG0wXw97I7QS-XH9K0Ok3spiErScsOQdk7rdq344Gnh1R-mY0L7I4tv97Zc03DC7qYIE9LdBlSO_8mEO0uiYg2PRl7kf9JhyUT5SiYFjAqMAsHqNb9MEsYydV2BDV5QJhJN7wQlf-N76dbtq5E10pyQBMbK3IUdcz8ZgEzwWvwynSlgiLanirY8-3iA5XM_tOOmmMZhhrLnaFjS9AzEOqVaprZHV55VblwfGR9hrlGI04hpnPjuLO2itz_rj7ienEQpcM4D3kGerJ74p8VFEyRWQAwH8K0VYU69wrgCi9vik2yCONikzfE2X7ZX-nKhwAg7WGyy2DRxYdW8AtyON_Y44Ym3Nqq1voc90Yj0igIBAz8jWotI9cy9QeHMChb0d1yvt_Q=w526-h935-no)
+Step 3 - Display a Map - IN PROGRESS 4/22 ( Branch Step3 )
 
-Step 3 - Display a Map - IN PROGRESS 4/22 ( Branch eo_step3 )
+Step 4 - Display COVID data as text ( Branch Step4 )
 
-Step 4 - Display COVID data as text ( Branch eo_step4 )
+![Image of COVID Data App](https://lh3.googleusercontent.com/ey4TB3zi2m0vfmoUBIwSFbfTprYsgB6TCBlLWEjbXEEVhOGLzxVAfEbvuIBlQyzBNGKdQH6ZiPY0nBdyKVuVjw7eXVzAupIRw929fqQ35C6wsclbJYa-aErGsJFCb3yhIixtD08qyyT7Gm8rRv3OJGKAX0ipbrOQwUVnYD_p3oxICAMMm6eMY_frDp0vvmbUs8uiEhrB3Hq1ZKMLJaiDEhM11qFLaedUlrl1BLaETbk3tiVaY31RKsnMZOO3chDOnZVCgTAUSSjhvX0ygbXO2qtTMc54U95tHcz1icXBcjPbKFki19wyARdmXds1Nnktu0CecA6aOTMTYBb5MpXYfKZYRwoucDXIXTTC4F6UMEgjJFvNNq0B1TlisjMcJBuWdmLekKTZLHznRWVIoL-mVS81LAbaqAffw4DU60LMEmYWvyrCiq_l_cafa78U-mM3lhil7dsDQHOlWXdOjHEfjEXyWA_mgEYu_rxYuB3988_fa9Fi1uO4APik3ODWvex1hjwznOvGD_Pmsg3cbwK-dCVlBYUHw9W224zyyrYzW-RLBdlN_9Y-E6xdnqBuPgcxbW-UHM0g3PuJqd-nVhmn2d-RgvxvXas-4ChAMA4-tLng2xG36BRPvCWa-W4kV71JAwweJYolcxqPrdbhdk1OAlMn3IJpvsZYaaxdBT3HtbWZAx-IkJq7gvZ0UOrXx48evM3I13Yenyybz0ws45NwFe7tgxew-wuA44-tRjxex4Ar5Jlf01-PMR0=w526-h935-no)
 
-Step 5 - Combine Map and COVID data ( Branch eo_step5 )
+Step 5 - Combine Map and COVID data ( Branch Step5 )
