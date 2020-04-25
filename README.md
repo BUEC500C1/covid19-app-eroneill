@@ -11,6 +11,8 @@ Run on both an android emulator and an old Pixel2 I have.
 
 Run on android emulator and Pixel2.
 
-### Step 4 - Display COVID data as text - IN PROGRESS
+### Step 4 - Display COVID data as text (COVID subfolder, Step4 branch) - DONE
 
-### Step 5 - Combine Map and COVID data
+Run on android emulator and Pixel2. 
+
+### Step 5 - Combine Map and COVID data - IN PROGRESS
