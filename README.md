@@ -7,10 +7,12 @@ Done on two laptops as the first died as I finished the setup.
 
 Run on both an android emulator and an old Pixel2 I have. 
 
-### Step 3 - Display a Map - DONE
+### Step 3 - Display a Map (COVID Subfolder, Step3 branch) - DONE
 
 Run on both emulator and Pixel2.
 
-### Step 4 - Display COVID data as text - IN PROGRESS 
+### Step 4 - Display COVID data as text (COVID Subfodler, Step4 branch) - DONE
+
+Run on both emulator and Pixel2. 
 
 ### Step 5 - Combine Map and COVID data
