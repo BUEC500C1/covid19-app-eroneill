@@ -1,114 +1,93 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// Erin O'Neill HW7 EC500
+// Copyright 2020 erinkate@bu.edu
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+export default
+class App extends React.Component {
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+    constructor(ourdata){
+    super(ourdata);
+    this.state = {
+      NewConfirmed: '',
+      TotalConfirmed:'',
+      NewDeaths: '',
+      TotalDeaths: '',
+      NewRecovered: '',
+      TotalRecovered: '',
+      CurrentDate: '',
+    };
+  } 
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  componentDidMount() {
+    // First grab all the stuff we want from the summary API page
+    fetch('https://api.covid19api.com/summary', {method: 'GET'})
+      .then((response) => response.json())
+      .then(json => {
+        this.setState({
+          NewConfirmed: json['Global']['NewConfirmed'],
+          TotalConfirmed: json['Global']['TotalConfirmed'],
+          NewDeaths: json['Global']['NewDeaths'],
+          TotalDeaths: json['Global']['TotalDeaths'],
+          NewRecovered: json['Global']['NewRecovered'],
+          TotalRecovered: json['Global']['TotalRecovered'],
+          CurrentDate: json['Date']
+        },
+        function(){}
+      );
+      console.log(this.state.jsondata);
+      })
+
+  }
+
+  render(){
+    return(
+      // Now we want to display our data with the different formatting 
+      <View style={style.container}>
+        <Text style = {style.bigtitle}> Global COVID19 Summary</Text>
+        <Text style = {style.datetext}> Data from COVID19api.com</Text>
+        <Text style = {style.datetext}> Date: {this.state.CurrentDate}</Text>
+        <Text style = {style.text}> New Confirmed Cases:   {this.state.NewConfirmed.toLocaleString()}</Text>
+        <Text style = {style.text}> Total Confirmed Cases:    {this.state.TotalConfirmed}</Text>
+        <Text style = {style.text}> New Deaths:                          {this.state.NewDeaths}</Text>
+        <Text style = {style.text}> Total Deaths:                     {this.state.TotalDeaths}</Text>
+        <Text style = {style.text}> New Recovered Cases:     {this.state.NewRecovered}</Text>
+        <Text style = {style.text}> Total Recovered Cases:    {this.state.TotalRecovered}</Text>
+        <Text style = {style.bottomcovering}>    </Text>
+
+        </View>
+    )
+  }
+}
+
+const style = StyleSheet.create({
+  container: {
+    backgroundColor:'#A9C6F5',    
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+
+  bigtitle:{
+    marginTop: 50,
+    fontSize: 25,
+    textAlign: "center",
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
+
+  datetext:{
+    marginTop: 20,
     fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+    textAlign: "center",
   },
-});
 
-export default App;
+  text:{
+    marginTop: 20,
+    marginBottom: 15,
+    marginRight: 75,
+    marginLeft: 75,
+    fontSize: 18,
+    textAlign: "center",
+    backgroundColor: '#B4CAED',
+  },
+  bottomcovering:{
+    marginBottom: 250,
+  }
+})
