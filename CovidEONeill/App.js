@@ -1,114 +1,102 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// Erin O'Neill HW7 EC500
+// Copyright 2020 erinkate@bu.edu
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import Callout from 'react-native-maps';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+export default
+class App extends React.Component {
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+    constructor(props){
+    super(props);
+    this.state = {
+      USTotalConfirmed:'',
+      USTotalDeaths: '',
+      USTotalRecovered: '',
+      CurrentDate: '',
+    };
+  } 
+
+  componentDidMount() {
+    // First grab all the stuff we want from the summary API page
+    fetch('https://api.covid19api.com/summary', {method: 'GET'})
+      .then((response) => response.json())
+      .then(json => {
+        this.setState({
+          USTotalConfirmed: json['Countries'][235]['TotalConfirmed'],
+          USTotalDeaths: json['Countries'][235]['TotalDeaths'],
+          USTotalRecovered: json['Countries'][235]['TotalRecovered'],
+          CurrentDate: json['Date']
+        },
+        function(){}
+      );
+      console.log(this.state.jsondata);
+      })
+
+  }
+
+  render(){
+    return(
+      <MapView
+        style={{ flex: 1 }}
+        provider={PROVIDER_GOOGLE}
+        showsUserLocation
+        initialRegion={{
+        latitude: 42.3967,
+        longitude: -71.1223,
+        latitudeDelta: 0.05,
+        longitudeDelta: 0.05,
+        }}
+      >
+      <MapView.Marker
+            coordinate={{latitude: 42,
+            longitude: -71}}>
+              <Callout>
+              <Text style = {style.bigtitle}>  Country: United States</Text>
+              <Text style = {style.text}>Total Confirmed Cases: {this.state.USTotalConfirmed}</Text>
+              <Text style = {style.text}>Total Death Cases: {this.state.USTotalDeaths}</Text>
+              
+              </Callout>
+      </MapView.Marker>
+
+      </MapView>
+      );
+      }
+   }
+
+const style = StyleSheet.create({
+  container: {
+    backgroundColor:'#A9C6F5',
+    alignItems: 'center',    
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+
+  bigtitle:{
+    marginTop: 50,
+    fontSize: 25,
+    textAlign: "center",
   },
-  body: {
-    backgroundColor: Colors.white,
+
+  mapStyle: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
+
+  datetext:{
+    marginTop: 20,
     fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+    textAlign: "center",
+  },
+
+  text:{
+    marginTop: 20,
+    marginBottom: 10,
+    marginRight: 75,
+    marginLeft: 75,
+    fontSize: 18,
+    textAlign: "center",
+    backgroundColor: '#B4CAED',
   },
 });
-
-export default App;
